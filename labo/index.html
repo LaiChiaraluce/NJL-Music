@@ -2,77 +2,79 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>NJL Music</title>
   </head>
-  <body>
-        <!-- NAV BAR -->
-        <nav
-        id="nav"
-      >
-        <i id="home"></i>
-        <i id="search"></i>
-        <i id="exit"></i>
-      </nav>
-      <!-- FIN NAV BAR -->
-  
-      <!-- PAGINA INICIO DEFAULT -->
-      <div
-        id="default-page"
-      >
-        <!-- CONTAINER LOGO -->
-        <div>
-          <img draggable="false" id="logo" src="" alt="logo" />
-        </div>
-        <!-- FIN CONTAINER LOGO -->
-      </div>
-      <!-- FIN PAGINA INICIO DEFAULT -->
-  
-      <!-- PAGINA INICIO -->
-      <div
-        id="home-page"
-      >
-        <!-- LOGO CONTAINER -->
-        <div>
-          <div>
-            <img id="logo" src="" alt="logo" />
-          </div>
-        </div>
-        <!-- FIN LOGO CONTAINER -->
-        <div
-          class="container-home"
-        >
-          <div>
-            <h2>
-              You might like
-            </h2>
-          </div>
-          <div class="box"></div>
-        </div>
-      </div>
-      <!-- FIN PAGINA INICIO -->
+  <body class="relative">
+    <!-- NAV BAR -->
+    <nav
+      id="nav"
+      class="nav-bar w-32 h-10 flex justify-evenly z-50 items-center fixed bottom-0 left-0 right-0 m-auto mb-2 bg-black rounded-md"
+    >
+      <i id="home" class="fa-solid fa-house"></i>
+      <i id="search" class="fa-solid fa-magnifying-glass"></i>
+      <i id="exit" class="fa-solid fa-circle-xmark"></i>
+    </nav>
+    <!-- FIN NAV BAR -->
 
-       <!-- PAGINA SEARCH -->
-    <div id="search-page">
+    <!-- PAGINA INICIO DEFAULT -->
+    <div 
+      id="default-page"
+      class="w-full h-screen flex justify-center items-center"
+      >
+      <!-- CONTAINER LOGO -->
+      <div class="w-80">
+        <img draggable="false" id="logo" src="./assets/logo.png" alt="logo" />
+      </div>
+      <!-- FIN CONTAINER LOGO -->
+    </div>
+    <!-- FIN PAGINA INICIO DEFAULT -->
+
+    <!-- PAGINA INICIO -->
+    <div id="home-page" class="w-full h-screen flex justify-center items-center">
       <!-- LOGO CONTAINER -->
-      <div>
-        <div>
-          <img id="logo" alt="logo"/>
+      <div class="w-full h-16 p-4">
+        <div class="w-10">
+          <img id="logo" src="./assets/logo.png" alt="logo" />
+        </div>
+      </div>
+      <!-- FIN LOGO CONTAINER -->
+      <div class="container-home w-full h-full flex p-2 justify-center items-center flex-col">
+        <div class="w-full flex justify-center">
+          <h2 class="text-5xl mb-2 font-bold self-start mightlike">You might like</h2>
+        </div>
+        <div class="box"></div>
+      </div>
+    </div>
+    <!-- FIN PAGINA INICIO -->
+
+    <!-- PAGINA SEARCH -->
+    <div id="search-page" class="w-full h-screen">
+      <!-- LOGO CONTAINER -->
+      <div class="w-full h-16 p-4">
+        <div class="w-10">
+          <img id="logo" src="./assets/logo.png" alt="logo" />
         </div>
       </div>
       <!-- FIN LOGO CONTAINER -->
 
       <!-- INPUT CONTAINER -->
-      <div>
+      <div class="w-full flex justify-center items-center mt-5 gap-2">
         <!-- INPUT -->
-        <input
-          type="search"
-          placeholder="Search"
-        />
+        <input type="search" placeholder="Search" class="rounded-lg p-2 outline-none" />
         <!-- FIN INPUT -->
         <form>
-          <select>
+          <select class="rounded-lg p-2">
             <option value="tracks" selected>Songs</option>
             <option value="artists">Artists</option>
             <option value="albums">Albums</option>
@@ -80,7 +82,7 @@
             <option value="users">Users</option>
           </select>
         </form>
-        <button>Search</button>
+        <button class="p-2 bg-sky-600 rounded-lg">Search</button>
       </div>
       <!-- FIN INPUT CONTAINER -->
 

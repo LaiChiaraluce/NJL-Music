@@ -22,7 +22,32 @@ export async function search() {
   const response = await fetch(url, options);
   const result = await response.json();
 
+if(toSearch === ""){
+    return;
+  }else{
+    for (let i = 0; i < 5; i++) {
+      if (selectedType === "tracks") {
+        let href = result.tracks.items[i].data.albumOfTrack.sharingInfo.shareUrl; 
+        let src = result.tracks.items[i].data.albumOfTrack.coverArt.sources[0].url;
+        let name = result.tracks.items[i].data.name;
 
+        generateDiv(href, src, name, "Song");
+      }
+      if (selectedType === "artists") {
+        let href = result.artists.items[i].data.uri; 
+        let src = result.artists.items[i].data.visuals.avatarImage.sources[0].url;
+        let name = result.artists.items[i].data.profile.name;
+        generateDiv(href, src, name, "Artist", "rounded-full h-24")
+      }
+      if (selectedType === "albums") {
+        let href = result.albums.items[i].data.uri;
+        let src = result.albums.items[i].data.coverArt.sources[0].url;
+        let name = result.albums.items[i].data.name;
+        generateDiv(href, src, name, "Album")
+      }
+      //FALTA PLAYLIST Y USERS
+    }
+  }
 
   function generateDiv(href, src, name, type, imgClass=""){
     if(src === null){

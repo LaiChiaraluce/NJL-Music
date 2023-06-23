@@ -45,7 +45,18 @@ if(toSearch === ""){
         let name = result.albums.items[i].data.name;
         generateDiv(href, src, name, "Album")
       }
-      //FALTA PLAYLIST Y USERS
+      if (selectedType === "playlists") {
+        let href = result.playlists.items[i].data.uri;
+        let src = result.playlists.items[i].data.images.items[0].sources[0].url;
+        let name = result.playlists.items[i].data.name;
+        generateDiv(href, src, name, "Playlist")
+      }
+      if (selectedType === "users") {
+        let href = result.users.items[i].data.uri;
+        let src = result.users.items[i].data.image.largeImageUrl;
+        let name = result.users.items[i].data.displayName;
+        generateDiv(href, src, name, "User", "rounded-full h-24")
+      }
     }
   }
 

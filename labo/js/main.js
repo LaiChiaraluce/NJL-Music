@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-import { home } from "./home";
-import { search } from "./search";
+import { home } from "./home.js";
+import { search } from "./search.js";
 
 const homeBtn = document.querySelector("#home");
 const searchBtn = document.querySelector("#search");
@@ -35,8 +35,6 @@ searchBtn.addEventListener("click", () => {
   defaultPage.style.display = "none"
   homePage.style.display = "none"
   searchPage.style.display = "block"
-
-
 })
 
 exitBtn.addEventListener("click", () => switchNav(exitBtn, homeBtn, searchBtn));

@@ -1,4 +1,4 @@
-import { boxHome } from "./main";
+import { boxHome } from "./main.js";
 
 const url =
   "https://spotify23.p.rapidapi.com/genre_view/?id=0JQ5DAqbMKFEC4WFtoNRpw&content_limit=12&limit=20";

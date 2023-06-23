@@ -1,11 +1,10 @@
-import { input } from "./main";
-import { select } from "./main";
-import { searchContainer } from "./main";
+import { input } from "./main.js";
+import { select } from "./main.js";
+import { searchContainer } from "./main.js";
 
 try {
 } catch (error) {
   console.error(error);
-  
 }
 
 export async function search() {

@@ -107,7 +107,7 @@ export async function search() {
 
   function generateNotFound() {
     searchContainer.innerHTML = `<div class="flex items-center justify-center w-60 mt-4">
-          <img src="../assets/not_found.png" alt="not-found" />
-        </div>`;
+                                  <img src="../assets/not_found.png" alt="not-found" />
+                                </div>`;
   }
 }

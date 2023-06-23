@@ -56,7 +56,9 @@ export async function search() {
       }
       if (selectedType === "users") {
         if (result.users.totalCount === 0) {
-          console.log("hola");
+          searchContainer.innerHTML = `<div class="flex items-center justify-center w-80 mt-4">
+          <img src="../assets/not_found.png" alt="not-found" />
+        </div>`
         } else {
           let name = result.users.items[i].data.displayName;
           let href = result.users.items[i].data.uri;

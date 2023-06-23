@@ -27,6 +27,9 @@ homeBtn.addEventListener("click", () => {
   homePage.style.display = "block"
 
   boxHome.innerHTML = "";
+  searchContainer.innerHTML = "";
+  input.value = "";
+  select.selectedIndex = 0;
   home();
 })
 
@@ -42,6 +45,10 @@ exitBtn.addEventListener("click", () => {
   homePage.style.display = "none"
   searchPage.style.display = "none"
   defaultPage.style.display = "flex"
+
+  searchContainer.innerHTML = "";
+  input.value = "";
+  select.selectedIndex = 0;
 })
 
 searchBtnSearch.addEventListener("click", () => {

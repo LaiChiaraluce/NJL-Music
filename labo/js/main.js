@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { home } from "./home";
 import { search } from "./search";
 

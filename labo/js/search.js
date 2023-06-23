@@ -5,6 +5,7 @@ import { searchContainer } from "./main";
 try {
 } catch (error) {
   console.error(error);
+  
 }
 
 export async function search() {

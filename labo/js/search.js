@@ -27,38 +27,53 @@ export async function search() {
   } else {
     for (let i = 0; i < 5; i++) {
       if (selectedType === "tracks") {
-        let href =
-          result.tracks.items[i].data.albumOfTrack.sharingInfo.shareUrl;
-        let src =
-          result.tracks.items[i].data.albumOfTrack.coverArt.sources[0].url;
-        let name = result.tracks.items[i].data.name;
+        if (result.tracks.totalCount === 0) {
+          generateNotFound();
+        } else {
+          let href =
+            result.tracks.items[i].data.albumOfTrack.sharingInfo.shareUrl;
+          let src =
+            result.tracks.items[i].data.albumOfTrack.coverArt.sources[0].url;
+          let name = result.tracks.items[i].data.name;
 
-        generateDiv(href, src, name, "Song");
+          generateDiv(href, src, name, "Song");
+        }
       }
       if (selectedType === "artists") {
-        let href = result.artists.items[i].data.uri;
-        let src =
-          result.artists.items[i].data.visuals.avatarImage.sources[0].url;
-        let name = result.artists.items[i].data.profile.name;
-        generateDiv(href, src, name, "Artist", "rounded-full h-24");
+        if (result.artists.totalCount === 0) {
+          generateNotFound();
+        } else {
+          let href = result.artists.items[i].data.uri;
+          let src =
+            result.artists.items[i].data.visuals.avatarImage.sources[0].url;
+          let name = result.artists.items[i].data.profile.name;
+          generateDiv(href, src, name, "Artist", "rounded-full h-24");
+        }
       }
       if (selectedType === "albums") {
-        let href = result.albums.items[i].data.uri;
-        let src = result.albums.items[i].data.coverArt.sources[0].url;
-        let name = result.albums.items[i].data.name;
-        generateDiv(href, src, name, "Album");
+        if (result.albums.totalCount === 0) {
+          generateNotFound();
+        } else {
+          let href = result.albums.items[i].data.uri;
+          let src = result.albums.items[i].data.coverArt.sources[0].url;
+          let name = result.albums.items[i].data.name;
+          generateDiv(href, src, name, "Album");
+        }
       }
       if (selectedType === "playlists") {
-        let href = result.playlists.items[i].data.uri;
-        let src = result.playlists.items[i].data.images.items[0].sources[0].url;
-        let name = result.playlists.items[i].data.name;
-        generateDiv(href, src, name, "Playlist");
+        if (result.playlists.totalCount === 0) {
+          generateNotFound();
+        } else {
+          let href = result.playlists.items[i].data.uri;
+          let src =
+            result.playlists.items[i].data.images.items[0].sources[0].url;
+          let name = result.playlists.items[i].data.name;
+          generateDiv(href, src, name, "Playlist");
+        }
       }
       if (selectedType === "users") {
         if (result.users.totalCount === 0) {
-          searchContainer.innerHTML = `<div class="flex items-center justify-center w-80 mt-4">
-          <img src="../assets/not_found.png" alt="not-found" />
-        </div>`
+          generateNotFound();
         } else {
           let name = result.users.items[i].data.displayName;
           let href = result.users.items[i].data.uri;
@@ -72,7 +87,7 @@ export async function search() {
   function generateDiv(href, src, name, type, imgClass = "") {
     if (src === null) {
       src = "../assets/default_user.png";
-      console.log(src)
+      console.log(src);
     }
     searchContainer.innerHTML += `<div class="results-container">
                                       <a href="${href}" target="_blank" draggable='false'>
@@ -88,5 +103,11 @@ export async function search() {
                                         <h6 class="result-type text-gray-400">${type}</h6>
                                       </div>
                                     </div>`;
+  }
+
+  function generateNotFound() {
+    searchContainer.innerHTML = `<div class="flex items-center justify-center w-80 mt-4">
+          <img src="../assets/not_found.png" alt="not-found" />
+        </div>`;
   }
 }

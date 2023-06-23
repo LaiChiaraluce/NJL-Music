@@ -16,7 +16,7 @@ export async function search() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "77c026d879mshb740ae069f014a5p1db1dcjsn462174ccb321",
+      "X-RapidAPI-Key": "d43be08cccmsh4c36870c9e7bfb6p158fccjsn53f6a83fec0b",
       "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
     },
   };

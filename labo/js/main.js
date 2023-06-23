@@ -1,3 +1,6 @@
+import { home } from "./home";
+import { search } from "./search";
+
 const homeBtn = document.querySelector("#home");
 const searchBtn = document.querySelector("#search");
 const exitBtn = document.querySelector("#exit");
@@ -6,11 +9,23 @@ const defaultPage = document.querySelector("#default-page")
 const homePage = document.querySelector("#home-page")
 const searchPage = document.querySelector("#search-page")
 
+export const boxHome = document.querySelector(".box");
+export const songImgHome = document.querySelectorAll(".song-img-home")
+export const anchorImgHome = document.querySelectorAll(".anchor-home")
+
+export const input = document.querySelector("input")
+export const select = document.querySelector("select")
+export const searchContainer = document.querySelector(".search-container")
+const searchBtnSearch = document.querySelector("button")
+
 homeBtn.addEventListener("click", () => switchNav(homeBtn, searchBtn, exitBtn));
 homeBtn.addEventListener("click", () => {
   defaultPage.style.display = "none"
   searchPage.style.display = "none"
   homePage.style.display = "block"
+
+  boxHome.innerHTML = "";
+  home();
 })
 
 searchBtn.addEventListener("click", () => switchNav(searchBtn, homeBtn, exitBtn));
@@ -18,6 +33,8 @@ searchBtn.addEventListener("click", () => {
   defaultPage.style.display = "none"
   homePage.style.display = "none"
   searchPage.style.display = "block"
+
+
 })
 
 exitBtn.addEventListener("click", () => switchNav(exitBtn, homeBtn, searchBtn));
@@ -25,6 +42,12 @@ exitBtn.addEventListener("click", () => {
   homePage.style.display = "none"
   searchPage.style.display = "none"
   defaultPage.style.display = "flex"
+})
+
+searchBtnSearch.addEventListener("click", () => {
+  searchContainer.style.display = "flex";
+  searchContainer.innerHTML = "";
+  search();
 })
 
 // ---- FUNCTIONS ----

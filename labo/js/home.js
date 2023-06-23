@@ -15,12 +15,12 @@ export async function home() {
   const result = await response.json();
 
   for (let i = 0; i < 12; i++) {
-    boxHome.innerHTML += <div class="card">
+    boxHome.innerHTML += `<div class="card">
                             <div class="flex justify-center">
                               <a href="${result.content.items[13].content.items[i].external_urls.spotify}" class="anchor-home" target="_blank" draggable='false'>
                                 <img class="song-img-home w-full rounded-md" src='${result.content.items[13].content.items[i].images[0].url}' draggable='false'/>
                               </a>
                             </div>
-                          </div>;
+                          </div>`;
   }
 }

@@ -115,6 +115,7 @@
   
   .results-container{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: black;
     border-radius: 0.5rem;
@@ -125,6 +126,7 @@
     cursor: pointer;
     border-radius: 0.2rem;
   }
+
   /* SEARCH PAGE */
   
   @media screen and (max-width: 450px) {

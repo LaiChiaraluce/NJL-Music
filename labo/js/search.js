@@ -25,7 +25,32 @@ export async function search() {
   if (toSearch === "") {
     return;
   } else {
-    for (let i = 0; i < 5; i++) {
+    let limit;
+    let itemsCount;
+    switch (selectedType) {
+      case "tracks":
+        itemsCount = result.tracks.totalCount;
+        break;
+      case "artists":
+        itemsCount = result.artists.totalCount;
+        break;
+      case "albums":
+        itemsCount = result.albums.totalCount;
+        break;
+      case "playlists":
+        itemsCount = result.playlists.totalCount;
+        break;
+      case "users":
+        itemsCount = result.users.totalCount;
+        break;
+    }
+    if( itemsCount < 5){
+      limit = itemsCount;
+    }
+    else{
+      limit = 5;
+    }
+    for (let i = 0; i < limit; i++) {
       if (selectedType === "tracks") {
         if (result.tracks.totalCount === 0) {
           generateNotFound();

@@ -87,6 +87,35 @@ async function searchPlaylists(id){
     const response = await fetch(url, options);
     const result = await response.json();
     console.log(result);
+    let Container = document.createElement("div");
+
+    let playlists = result.public_playlists;
+
+    Container.classList.add("userPlaylists-container");
+    let userPlaylists = document.createElement("div");
+    userPlaylists.classList.add("userPlaylists");
+    userPlaylists.innerHTML += `<img src="./assets/close.png" alt="closebtn" class="closebtn">`;
+    Container.appendChild(userPlaylists);
+
+
+    for (let index = 0; index < playlists.length; index++) {
+      console.log(playlists[index]);
+      let url = playlists[index].uri;
+      let name = playlists[index].name;
+
+      userPlaylists.innerHTML += `
+      <div class="playlist">
+        <a href="${url}">
+          ${name}
+        </a>
+      </div>
+      `
+    }
+    searchPage.appendChild(Container);
+    const closebtn = document.querySelector(".closebtn");
+    closebtn.addEventListener("click", () =>{
+      searchPage.removeChild(Container);
+    }) 
   } catch (error) {
     console.error(error);
   }

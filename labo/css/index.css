@@ -127,6 +127,55 @@
     border-radius: 0.2rem;
   }
 
+  .userPlaylists-container{
+    background-color: #363636ae;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .userPlaylists{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    padding: 10px 10px 0px 10px;
+    width:80%;
+    background-color: rgb(116, 225, 244);
+    border-radius: 18px;
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
+
+  .playlist{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+    margin-bottom: 10px;
+    background-color: #363636;
+    border-radius: 25px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .playlist img{
+    height: 100%;
+    border-radius: 25px;
+  }
+
+  .closebtn{
+    padding: 5px;
+    position: absolute;
+    top:0;
+    right: 0;
+    max-width: 23px;
+    cursor: pointer;
+  }
   /* SEARCH PAGE */
   
   @media screen and (max-width: 450px) {

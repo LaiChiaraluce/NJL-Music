@@ -101,32 +101,36 @@ export async function search() {
           generateNotFound();
         } else {
           let name = result.users.items[i].data.displayName;
+          console.log(name)
           let href = result.users.items[i].data.uri;
           let src = result.users.items[i].data.image.largeImageUrl;
-          generateDiv(href, src, name, "User", "rounded-full h-24");
+          let btn = `<button id=${result.users.items[i].data.id} class="search-user btn-search p-2 bg-sky-600 rounded-lg">Show Playlists</button>`;
+          generateDiv(href, src, name, "User", "rounded-full h-24", btn); 
         }
       }
     }
   }
 
-  function generateDiv(href, src, name, type, imgClass = "") {
+  function generateDiv(href, src, name, type, imgClass = "", btn = "") {
     if (src === null) {
       src = "../assets/default_user.png";
-      console.log(src);
     }
     searchContainer.innerHTML += `<div class="results-container">
-                                      <a href="${href}" target="_blank" draggable='false'>
-                                        <img
-                                          src="${src}"
-                                          alt="logo-${name}"
-                                          class="result-img w-24 justify-center items-center ${imgClass}"
-                                          draggable='false'
-                                        />
-                                      </a>
-                                      <div class="ml-2">
-                                        <h5 class="result-name">${name}</h5>
-                                        <h6 class="result-type text-gray-400">${type}</h6>
+                                      <div class="flex items-center">
+                                        <a href="${href}" target="_blank" draggable='false'>
+                                          <img
+                                            src="${src}"
+                                            alt="logo-${name}"
+                                            class="result-img w-24 justify-center items-center ${imgClass}"
+                                            draggable='false'
+                                          />
+                                        </a>
+                                        <div class="ml-2">
+                                          <h5 class="result-name">${name}</h5>
+                                          <h6 class="result-type text-gray-400">${type}</h6>
+                                        </div>
                                       </div>
+                                      ${btn}
                                     </div>`;
   }
 
@@ -135,4 +139,5 @@ export async function search() {
                                   <img src="../assets/not_found.png" alt="not-found" />
                                 </div>`;
   }
+
 }

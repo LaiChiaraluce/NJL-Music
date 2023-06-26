@@ -25,7 +25,32 @@ export async function search() {
   if (toSearch === "") {
     return;
   } else {
-    for (let i = 0; i < 5; i++) {
+    let limit;
+    let itemsCount;
+    switch (selectedType) {
+      case "tracks":
+        itemsCount = result.tracks.totalCount;
+        break;
+      case "artists":
+        itemsCount = result.artists.totalCount;
+        break;
+      case "albums":
+        itemsCount = result.albums.totalCount;
+        break;
+      case "playlists":
+        itemsCount = result.playlists.totalCount;
+        break;
+      case "users":
+        itemsCount = result.users.totalCount;
+        break;
+    }
+    if( itemsCount < 5){
+      limit = itemsCount;
+    }
+    else{
+      limit = 5;
+    }
+    for (let i = 0; i < limit; i++) {
       if (selectedType === "tracks") {
         if (result.tracks.totalCount === 0) {
           generateNotFound();
@@ -76,38 +101,43 @@ export async function search() {
           generateNotFound();
         } else {
           let name = result.users.items[i].data.displayName;
+          console.log(name)
           let href = result.users.items[i].data.uri;
           let src = result.users.items[i].data.image.largeImageUrl;
-          generateDiv(href, src, name, "User", "rounded-full h-24");
+          let btn = `<button id=${result.users.items[i].data.id} class="search-user btn-search p-2 bg-sky-600 rounded-lg">Show Playlists</button>`;
+          generateDiv(href, src, name, "User", "rounded-full h-24", btn); 
         }
       }
     }
   }
 
-  function generateDiv(href, src, name, type, imgClass = "") {
+  function generateDiv(href, src, name, type, imgClass = "", btn = "") {
     if (src === null) {
       src = "../assets/default_user.png";
-      console.log(src);
     }
     searchContainer.innerHTML += `<div class="results-container">
-                                      <a href="${href}" target="_blank" draggable='false'>
-                                        <img
-                                          src="${src}"
-                                          alt="logo-${name}"
-                                          class="result-img w-24 justify-center items-center ${imgClass}"
-                                          draggable='false'
-                                        />
-                                      </a>
-                                      <div class="ml-2">
-                                        <h5 class="result-name">${name}</h5>
-                                        <h6 class="result-type text-gray-400">${type}</h6>
+                                      <div class="flex items-center">
+                                        <a href="${href}" target="_blank" draggable='false'>
+                                          <img
+                                            src="${src}"
+                                            alt="logo-${name}"
+                                            class="result-img w-24 justify-center items-center ${imgClass}"
+                                            draggable='false'
+                                          />
+                                        </a>
+                                        <div class="ml-2">
+                                          <h5 class="result-name">${name}</h5>
+                                          <h6 class="result-type text-gray-400">${type}</h6>
+                                        </div>
                                       </div>
+                                      ${btn}
                                     </div>`;
   }
 
   function generateNotFound() {
-    searchContainer.innerHTML = `<div class="flex items-center justify-center w-80 mt-4">
-          <img src="../assets/not_found.png" alt="not-found" />
-        </div>`;
+    searchContainer.innerHTML = `<div class="flex items-center justify-center w-60 mt-4">
+                                  <img src="../assets/not_found.png" alt="not-found" />
+                                </div>`;
   }
+
 }

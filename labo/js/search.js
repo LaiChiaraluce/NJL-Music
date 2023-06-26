@@ -2,11 +2,6 @@ import { input } from "./main.js";
 import { select } from "./main.js";
 import { searchContainer } from "./main.js";
 
-try {
-} catch (error) {
-  console.error(error);
-}
-
 export async function search() {
   const toSearch = input.value;
   const selectedType = select.value;
@@ -84,7 +79,6 @@ export async function search() {
         }
         if (selectedType === "users") {
           let name = result.users.items[i].data.displayName;
-          console.log(name);
           let href = result.users.items[i].data.uri;
           let src = result.users.items[i].data.image.largeImageUrl;
           let btn = `<button id=${result.users.items[i].data.id} class="search-user btn-search p-2 bg-sky-600 rounded-lg mr-2">Show Playlists</button>`;

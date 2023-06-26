@@ -13,7 +13,6 @@ const options = {
 export async function home() {
   const response = await fetch(url, options);
   const result = await response.json();
-  console.log(result);
   for (let i = 0; i < 12; i++) {
     boxHome.innerHTML += `<div class="card">
                             <div class="flex justify-center">

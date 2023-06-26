@@ -86,7 +86,6 @@ async function searchPlaylists(id){
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    console.log(result);
     let Container = document.createElement("div");
 
     let playlists = result.public_playlists;
@@ -99,7 +98,6 @@ async function searchPlaylists(id){
 
 
     for (let index = 0; index < playlists.length; index++) {
-      console.log(playlists[index]);
       let url = playlists[index].uri;
       let name = playlists[index].name;
 

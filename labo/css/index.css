@@ -22,38 +22,6 @@ body {
   min-height: 100vh;
 }
 
-/*Scroll-bar*/
-/* *::-webkit-scrollbar {
-  width: 10px;
-  width: 10px;
-}
-*::-webkit-scrollbar-track {
-  border-radius: 5px;
-  background-color: #dfe9eb;
-}
-
-*::-webkit-scrollbar-track:hover {
-  background-color: #b8c0c2;
-}
-
-*::-webkit-scrollbar-track:active {
-  background-color: #b8c0c2;
-}
-
-*::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #1396c0;
-  border: 1px solid #ffffff;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background-color: #19c7ff;
-}
-
-*::-webkit-scrollbar-thumb:active {
-  background-color: #00b3ff;
-} */
-
 /* NAV BAR */
 .nav-bar {
   background-color: #000000;

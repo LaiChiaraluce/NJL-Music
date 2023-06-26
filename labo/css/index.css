@@ -20,6 +20,38 @@
     min-width: 320px;
     min-height: 100vh;
   }
+
+/*Scroll-bar*/
+  *::-webkit-scrollbar {
+    width: 10px;
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #DFE9EB;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #B8C0C2;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #1396C0;
+    border: 1px solid #FFFFFF;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #19C7FF;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #00B3FF;
+  }
   
   /* NAV BAR */
   .nav-bar {
@@ -142,10 +174,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content:center;
     padding: 10px 10px 0px 10px;
     width:80%;
-    background-color: rgb(116, 225, 244);
+    background-color: #1396c0;
     border-radius: 18px;
     max-height: 80vh;
     overflow-y: scroll;

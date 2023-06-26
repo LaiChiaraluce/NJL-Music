@@ -78,7 +78,7 @@ async function searchPlaylists(id){
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': 'd43be08cccmsh4c36870c9e7bfb6p158fccjsn53f6a83fec0b',
+      'X-RapidAPI-Key': 'd31ed2fd59mshb6f5be2388ff664p19035djsn02abe2e8ce65',
       'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
     }
   };
@@ -94,7 +94,7 @@ async function searchPlaylists(id){
     Container.classList.add("userPlaylists-container");
     let userPlaylists = document.createElement("div");
     userPlaylists.classList.add("userPlaylists");
-    userPlaylists.innerHTML += `<img src="./assets/close.png" alt="closebtn" class="closebtn">`;
+    userPlaylists.innerHTML += `<i class="fa-solid fa-circle-xmark closebtn"></i>`;
     Container.appendChild(userPlaylists);
 
 

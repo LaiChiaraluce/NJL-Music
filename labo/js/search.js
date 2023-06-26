@@ -15,7 +15,7 @@ export async function search() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "d43be08cccmsh4c36870c9e7bfb6p158fccjsn53f6a83fec0b",
+      "X-RapidAPI-Key": "d31ed2fd59mshb6f5be2388ff664p19035djsn02abe2e8ce65",
       "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
     },
   };
@@ -104,7 +104,7 @@ export async function search() {
           console.log(name)
           let href = result.users.items[i].data.uri;
           let src = result.users.items[i].data.image.largeImageUrl;
-          let btn = `<button id=${result.users.items[i].data.id} class="search-user btn-search p-2 bg-sky-600 rounded-lg">Show Playlists</button>`;
+          let btn = `<button id=${result.users.items[i].data.id} class="search-user btn-search p-2 bg-sky-600 rounded-lg mr-2">Show Playlists</button>`;
           generateDiv(href, src, name, "User", "rounded-full h-24", btn); 
         }
       }
